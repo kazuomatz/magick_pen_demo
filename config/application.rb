@@ -10,7 +10,7 @@ module MagickPenTest
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
-    config.assets.precompile += %w( application.js application.css )
+    config.assets.precompile += %w( application.js application.css bulma/application.css bulma/application.js bootstrap/application.css bootstrap/application.js)
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

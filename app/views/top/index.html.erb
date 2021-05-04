@@ -58,30 +58,78 @@
       <div class="container">
         <div class="column is-12">
           <vue-code-highlight language="markup">
-              <code>
+              <pre>
 <%- code = <<'EOS'
 
-<p class="is-larger">
-  <strong>
-    <vue-magick-pen pen-key="about">
-      Magick Penは、Ruby on Railsで制作されたWebサイト内のページの任意の箇所をダイレクトに編集して
-      更新することを可能にするコンポーネントフレームワークです。
-    </vue-magick-pen>
-  <strong>
-</p>
+<div id="page-content">
+  <p class="is-larger">
+    <strong>
+      <vue-magick-pen pen-key="snippet-1">
+        Magick Penは、Ruby on Railsで制作されたWebサイト内のページの任意の箇所をダイレクトに編集して
+        更新することを可能にするコンポーネントフレームワークです。
+      </vue-magick-pen>
+    <strong>
+  </p>
+  :
+  :
+</div>
+
+  <!--
+     Magick Penの初期化スクリプトを読み込み
+     editableにtrueを与えると編集可能になります。
+  --->
+  <%= render partial: 'magick_pen/config', locals: { editable: @editable } % >
+<script>
+
+    <!-- magick-penの設定をVue.prototypeに注入し、カスタムタグを使用できるようにします。 --->
+    Vue.prototype.$magickPenConfig = magickPenConfig
+    Vue.component('VueCodeHighlight',vueCodeHighlight.component )
+
+    <!-- ページ内のelで指定された要素にVueを適用します --->
+    var app = new Vue({
+      el: '#page-content',
+    })
+</script>
 EOS
-%>
-                <%= code %>
-              </code>
+%><%=  code %></pre>
           </vue-code-highlight>
           <p class="mt-3"> Railsのerbファイルの編集可能にしたい箇所を pen-key属性（ページ内のユニークなキー）をつけて、vue-magick-pen タグで囲むだけで編集可能になります。
           pen-key は、controller / action 内でユニークなものととして扱われます。<br/>
             ヘッダー、フッター、サイドバーなど サイトで共通な箇所、controller / action をまたぐ場合は、プレフィックス"g-" をpen-keyに付与すると(例：g-hoge)、サイト内でユニークなものとして扱われます。
           </p>
-
-          <p class="mt-3">
+          <p class="mt-3 mb-3">
             vue-magick-pen のタグで囲む部分は、プレインテキストでもHTMLでもOKです。HTMLの場合は、HTMLを編集することで更新ができます。
           </p>
+
+          <vue-code-highlight language="css">
+              <pre>
+<%- code = <<'EOS'
+/*
+application.css
+
+ *= require "vue-magick-pen/dist/vue-magick-pen"
+
+*/
+EOS
+%>
+<%= code %></pre></vue-code-highlight>
+
+
+          <vue-code-highlight language="css">
+              <pre>
+<%- code = <<'EOS'
+/*
+application.js
+
+//= require vue/dist/vue
+//= require vue-magick-pen/dist/vue-magick-pen.umd
+
+*/
+EOS
+%>
+<%= code %></pre></vue-code-highlight>
+
+
 
         </div>
       </div>
@@ -109,7 +157,7 @@ EOS
             data-aos="fade-in"
             data-aos-easing="linear"
           >
-            <h1 class="title has-text-centered section-title">Services</h1>
+            <h1 class="title has-text-centered section-title">Feature</h1>
 
             <h2 class="subtitle">
               <vue-magick-pen pen-key="service-title">
@@ -214,7 +262,6 @@ EOS
     </div>
   </div>
   <!-- End Main Content -->
-
 </div>
 
 
@@ -225,5 +272,4 @@ EOS
   var app = new Vue({
     el: '#page-content',
   })
-
 </script>

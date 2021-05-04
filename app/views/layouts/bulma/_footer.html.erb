@@ -1,0 +1,25 @@
+<footer class="footer">
+    <p>
+      <vue-magick-pen pen-key="g-year">
+      <strong class="white">MagicK Pen</strong> by<a href="http://github.com/kazuomatz">Kazuomatz</a> 2021.
+      The source code is licensed
+      <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content is licensed
+      <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+      </vue-magick-pen>
+    </p>
+</footer>
+<!-- End Footer -->
+
+<!-- Scripts -->
+<link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    easing: "ease-out",
+    duration: 800,
+  });
+  Vue.component('VueCodeHighlight',vueCodeHighlight.component )
+  var app = new Vue({
+    el: '.footer',
+  })
+</script>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Magic Pen Demo</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'bulma/application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'bulma/application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+
+<%= render partial: 'layouts/bulma/header' %>
+<%= yield %>
+<%= render partial: 'layouts/bulma/footer' %>
+</body>
+</html>
