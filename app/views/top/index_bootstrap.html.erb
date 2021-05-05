@@ -1,13 +1,13 @@
 
-<div id="page-content">
+<div id="magick-pen">
   <div class="wrapper">
     <div class="page-header page-header-small">
-      <div class="page-header-image" data-parallax="true" style="background-image: url(https://picsum.photos/id/946/1920/1080);">
+      <div class="page-header-image" data-parallax="true" style="background-image: url(https://picsum.photos/id/366/1920/1080);">
       </div>
       <div class="content-center">
         <div class="container">
-          <h1 class="title">Magick Pen</h1>
-          <div class="text-center">
+          <h1 class="title hero">Magick Pen</h1>
+          <div class="text-center sub-title">
             Ruby on Rails + Vue
           </div>
         </div>
@@ -25,8 +25,10 @@
                 Donec convallis libero turpis, sed sodales tellus vulputate luctus..
               </vue-magick-pen>
             </h5>
-            <% unless @editable %>
-              <a href="?editable=true" class="btn-primary btn btn-lg"><i class="fas fa-pen"></i> Edit this page</a>
+            <% if @editable %>
+              <a href="./bootstrap" class="btn-primary btn btn-lg"><i class="fas fa-times"></i> 編集モード終了</a>
+            <%- else %>
+              <a href="./bootstrap?editable=true" class="btn-primary btn btn-lg"><i class="fas fa-pen"></i> 編集モード</a>
             <%-  end %>
           </div>
 
@@ -117,11 +119,4 @@
   </div>
 </div>
 
-<%= render partial: 'magick_pen/config', locals: { editable: @editable } %>
-<script>
-  Vue.prototype.$magickPenConfig = magickPenConfig
-  Vue.component('VueCodeHighlight',vueCodeHighlight.component )
-  var app = new Vue({
-    el: '#page-content',
-  })
-</script>
+<%= render partial: 'magick_pen/load', locals: { editable: @editable } %>

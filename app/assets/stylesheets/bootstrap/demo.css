@@ -504,3 +504,17 @@
     display: none !important;
   }
 }
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+.hero.title {
+    font-family: 'Permanent Marker', cursive;
+    transform: rotate(
+            -5deg
+    );
+    font-size: 5rem;
+    color: whitesmoke;
+}
+.sub-title {
+    font-size: 2rem;
+    font-family: 'Permanent Marker', cursive;
+}
