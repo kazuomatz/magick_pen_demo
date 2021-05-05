@@ -10,11 +10,8 @@
     "jquery": "^3.6.0",
     "prismjs": "^1.23.0",
     "turbolinks": "^5.2.0",
-    "vue": "^2.6.12",
     "vue-code-highlight": "^0.7.6",
-    "vue-loader": "^15.9.6",
-    "vue-magick-pen": "^0.1.25",
-    "vue-template-compiler": "^2.6.12"
+    "vue-magick-pen": "^0.1.25"
   },
   "version": "0.1.0",
   "devDependencies": {
