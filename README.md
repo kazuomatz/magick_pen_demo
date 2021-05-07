@@ -7,6 +7,10 @@ Magick Penは、Railsプロジェクトに組み込んで利用できるGemの�
 
 ```bash
 $ bundle
+
+# database.ymlを適切に設定してください。
+
+$ bundle exec rake db:create
 $ rails g magick_pen:install --with-migrate
 $ rails s 
 ```
